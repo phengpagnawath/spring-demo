@@ -35,9 +35,7 @@ public class ArticleController {
 
     @GetMapping("/articles")
     public String index(ModelMap map){
-        Article newArticle = new Article("001","New Article","updated");
-        //articleService.delete(0);
-        //articleService.update(0,newArticle);
+
         List<Article> articles = articleService.select();
         map.addAttribute("articles",articles);
         return "article";
@@ -60,6 +58,11 @@ public class ArticleController {
     public String searchByTitle(@RequestParam String title,ModelMap map){
         map.addAttribute("articles",articleService.searchByTitle(title));
         return "article";
+    }
+    @GetMapping("/articles/delete/{id}")
+    public String deleteByID(@PathVariable String id){
+        articleService.delete(id);
+        return "redirect:/articles";
     }
 
 

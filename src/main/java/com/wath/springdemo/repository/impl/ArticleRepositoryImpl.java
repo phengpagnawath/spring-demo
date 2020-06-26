@@ -37,8 +37,8 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
-    public void deleteByID(int index) {
-        data.remove(index);
+    public void deleteByID(String id) {
+        data.removeIf(article -> article.getId().equals(id));
     }
 
     @Override

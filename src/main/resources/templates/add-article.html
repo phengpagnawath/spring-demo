@@ -4,21 +4,53 @@
     <meta charset="UTF-8">
     <title>Add Article</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link href="/css/main.css" rel="stylesheet" media="all">
+
+    <!-- Jquery JS-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+
+
+    <!-- Main JS-->
+    <script src="/js/global.js"></script>
 </head>
 <body>
-<div class="ml-5 w-75">
-    <form th:object="${article}" method="post" th:action="${isUpdate} ? @{/articles/update}:@{/articles/add}">
-        <div class="form-group w-75">
-            <label>Title</label>
-            <input type="hidden" th:field="*{id}">
-            <input type="text" class="form-control w-75" th:field="*{title}">
+<div class="page-wrapper bg-dark p-t-100 p-b-50">
+    <div class="wrapper wrapper--w900">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 class="title">Add new article</h2>
+            </div>
+            <div class="card-body">
+                <form th:object="${article}" method="post" th:action="${isUpdate} ? @{/articles/update}:@{/articles/add}">
+                    <div class="form-row">
+                        <input type="hidden" th:field="*{id}">
+                        <div class="name">Title</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input type="text" class="input--style-6" th:field="*{title}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Description</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <textarea class="textarea--style-6" type="text" th:field="*{description}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn--radius-2 btn--blue-2">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="form-group w-75">
-            <label>Description</label>
-            <input type="text" class="form-control w-75" th:field="*{description}">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 </div>
+
+
 </body>
 </html>

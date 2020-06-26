@@ -9,7 +9,7 @@ public interface ArticleService {
     Article insert(Article article);
     List<Article> select();
     Article selectById(String id);
-    void delete(int index);
+    void delete(String id);
     void update(Article newArticle);
     List<Article> searchByTitle(String title);
 

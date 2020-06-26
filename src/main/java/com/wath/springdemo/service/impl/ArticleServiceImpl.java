@@ -36,8 +36,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void delete(int index) {
-        articleRepository.deleteByID(index);
+    public void delete(String id) {
+        articleRepository.deleteByID(id);
     }
 
     @Override
